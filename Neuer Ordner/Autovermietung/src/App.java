@@ -47,10 +47,7 @@ public class App{
         
     }
  
-    public static void showGelaendewagen(){
-        int i = 0;
-        System.out.println(i + " Der Wagen ist von " + _gelaendewagen[0].getMarke() + " und vom Typ " + _gelaendewagen[0].getTyp() + ". Er kostet  " + _gelaendewagen[0].getPreis() + "€. Er hat " + _gelaendewagen[0].getPs() + " PS und einen maximalen Kippradius von " + _gelaendewagen[0]. getKippradius() + " Grad");
-    }  
+      
     public static void showAllGelaendewagen(){
         int i = 0;
         for(Gelaendewagen a : getAllGelaendewagen()){
@@ -68,7 +65,7 @@ public class App{
     public static void showAllKombi(){
         int i = 0;
         for(Kombi a : getAllKombi()){
-            if ( siebensitzer == true){
+            if (siebensitzer == true){
                 if(a!= null){
                     System.out.println(" Der Wagen ist von " + _kombi[i].getMarke() + " und vom Typ " + _kombi[i].getTyp() + ". Er kostet  " + _kombi[i].getPreis() + "€. Er hat " + _kombi[i].getPs() + " PS und ist ein Siebensitzer");
                 }

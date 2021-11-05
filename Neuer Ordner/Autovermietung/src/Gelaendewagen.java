@@ -6,8 +6,8 @@ public class Gelaendewagen extends AutosUniversEig {
         setKippradius(kippradius);
     }
 
-    public void setKippradius(int _kippradius) {
-        this._kippradius = _kippradius;
+    public static void setKippradius(int a) {
+        _kippradius = a;
     }
     public static int getKippradius() {
         return _kippradius;
