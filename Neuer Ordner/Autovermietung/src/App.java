@@ -1,4 +1,9 @@
+import java.util.*;
 public class App{
+
+    //Fehler, wenn ich versuche das Programm zu starten, da array length null ist. fehler wird bei showmethode, z. 52 und in der main, z. 36 ausgegeben
+    //Problem mit siebensitzer boolean aus kombi, wenn versucht aus zu geben in if-abfrage
+
 
     static Gelaendewagen[] _gelaendewagen;
     static Kombi[] _kombi;
@@ -8,39 +13,44 @@ public class App{
     public static void main(String[] args) throws Exception {
         // System.out.println("Hello, World!");
 
-        _gelaendewagen = new Gelaendewagen[20];
-        _gelaendewagen[0] = new Gelaendewagen(150, 8900, "G Klasse", "Mercedes", 65);
-        _gelaendewagen[1] = new Gelaendewagen(230, 12000, "Discovery", "Range Rover", 45);
-        _gelaendewagen[2] = new Gelaendewagen(300, 18000, "Sport", "Range Rover", 30);
+        ArrayList<AutosUniversEig> fahrzeuge = new ArrayList<AutosUniversEig>();
 
-        _kombi = new Kombi[20];
-        _kombi[0] = new Kombi(200, 16000, "XC 70", "Volvo", false);
-        _kombi[1] = new Kombi(180, 26000, "H2", "Hammer", true);
-        _kombi[2] = new Kombi(140, 19000, "Escalade", "Cadillac", true);
+        fahrzeuge.add(new Gelaendewagen(150, 8900, "G Klasse", "Mercedes", 65));
+        fahrzeuge.add(new Gelaendewagen(230, 12000, "Discovery", "Range Rover", 45));
+        fahrzeuge.add(new Gelaendewagen(300, 18000, "Sport", "Range Rover", 30));
+        fahrzeuge.add(new Kombi(200, 16000, "XC 70", "Volvo", false));
+        fahrzeuge.add(new Kombi(180, 26000, "H2", "Hammer", true));
+        fahrzeuge.add(new Kombi(140, 19000, "Escalade", "Cadillac", true));
+        fahrzeuge.add(new LKW(400, 30000, "Actros", "Mercedes", 29000));
+        fahrzeuge.add(new LKW(400, 40000, "Atego", "Mercedes", 28000));
+        fahrzeuge.add(new LKW(400, 50000, "Arocs", "Mercedes", 32000));
+        fahrzeuge.add(new Sportwagen(520, 89000, "Continental GT", "Bentley", 420));
+        fahrzeuge.add(new Sportwagen(580, 90000, "DB 5", "Aston Marin", 580));
+        fahrzeuge.add(new Sportwagen(320, 54000, "Taycan", "Porsche", 320));
         
-        _lkw = new LKW[20];
-        _lkw[0] = new LKW(400, 30000, "Actros", "Mercedes", 29000);
-        _lkw[1] = new LKW(400, 40000, "Atego", "Mercedes", 28000);
-        _lkw[2] = new LKW(400, 50000, "Arocs", "Mercedes", 32000);
-
-        _sportwagen = new Sportwagen[20];
-        _sportwagen[0] = new Sportwagen(520, 89000, "Continental GT", "Bentley", 420);
-        _sportwagen[0] = new Sportwagen(580, 90000, "DB 5", "Aston Marin", 580);
-        _sportwagen[0] = new Sportwagen(320, 54000, "Taycan", "Porsche", 320);
-
+    
+    AutosUniversEig maxAuto = fahrzeuge.get(0);
+    for(AutosUniversEig a : fahrzeuge){
+        if( a.getPs() > maxAuto.getPs()){
+            maxAuto = a;
+        }
+    }
+     
+     
         showAllGelaendewagen();
         System.out.println(" ");
         showAllKombi();
         System.out.println(" ");
         showAllLKW();
         System.out.println(" ");
-        showAllSportwagen();
+        showAllSportwagen(); 
+        
     }
-/** 
+ 
     public static void showGelaendewagen(){
         int i = 0;
         System.out.println(i + " Der Wagen ist von " + _gelaendewagen[0].getMarke() + " und vom Typ " + _gelaendewagen[0].getTyp() + ". Er kostet  " + _gelaendewagen[0].getPreis() + "€. Er hat " + _gelaendewagen[0].getPs() + " PS und einen maximalen Kippradius von " + _gelaendewagen[0]. getKippradius() + " Grad");
-    }  **/
+    }  
     public static void showAllGelaendewagen(){
         int i = 0;
         for(Gelaendewagen a : getAllGelaendewagen()){
@@ -58,7 +68,7 @@ public class App{
     public static void showAllKombi(){
         int i = 0;
         for(Kombi a : getAllKombi()){
-            if (siebensitzer == true){
+            if ( siebensitzer == true){
                 if(a!= null){
                     System.out.println(" Der Wagen ist von " + _kombi[i].getMarke() + " und vom Typ " + _kombi[i].getTyp() + ". Er kostet  " + _kombi[i].getPreis() + "€. Er hat " + _kombi[i].getPs() + " PS und ist ein Siebensitzer");
                 }
